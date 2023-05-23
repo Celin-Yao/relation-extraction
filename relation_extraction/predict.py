@@ -15,7 +15,7 @@ def predict(hparams):
 
     pretrained_model_path = hparams.pretrained_model_path
     tagset_file = hparams.tagset_file
-    model_file = './model.bin'
+    model_file = 'saved_models/model.bin'
     idx2tag = get_idx2tag(tagset_file)
     hparams.tagset_size = len(idx2tag)
     model = SentenceRE(hparams).to(device)

@@ -22,7 +22,7 @@ def train(hparams):
     validation_file = hparams.validation_file
     log_dir = hparams.log_dir
     tagset_file = hparams.tagset_file
-    model_file = hparams.model_file
+    model_file = 'saved_models/model.bin'
     checkpoint_file = hparams.checkpoint_file
 
     max_len = hparams.max_len
@@ -50,7 +50,7 @@ def train(hparams):
         checkpoint_dict = load_checkpoint(checkpoint_file)
         best_f1 = checkpoint_dict['best_f1']
         epoch_offset = checkpoint_dict['best_epoch'] + 1
-        model.load_state_dict(torch.load('./model.bin'))
+        model.load_state_dict(torch.load(model_file))
     else:
         checkpoint_dict = {}
         best_f1 = 0.0
@@ -131,7 +131,7 @@ def train(hparams):
                     best_f1 = f1
                     checkpoint_dict['best_f1'] = best_f1
                     checkpoint_dict['best_epoch'] = epoch
-                    torch.save(model.state_dict(), './model.bin')
+                    torch.save(model.state_dict(), model_file)
                 save_checkpoint(checkpoint_dict, checkpoint_file)
 
     writer.close()
