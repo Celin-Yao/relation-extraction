@@ -2,7 +2,7 @@
 
 tips:
 
-Downloads **bert-based-chinese** from huggingface.com, and put them into the folder **./pretrained_models** 
+Downloads **bert-based-chinese** from huggingface.co, and put them into the folder **./pretrained_models** 
 
 We use data from CMeIE dataset, all the data has been formed, referred to **./dataset**.
 
